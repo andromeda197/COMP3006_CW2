@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Fault Logger</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class= "sidenav">
+            <a href="/incident">New Incident</a>
+            <a href="/stack">View Stack</a>
+            <a href="/resolved">View Resolved</a>
+        </div>
+        
+        <div class= form>
+            <form action="/submitTicket" method="post">
+            <h1>New Incident</h1>
+            
+            <div class="form-input">
+                <label for="incId">ID:</label>
+                <input readonly type="text" class="form-input" name="incId" value = <%= id %>>
+            </div>
+
+            <div class="form-input">
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-input" name="fname">
+            </div>
+            
+            <div class="form-input">
+                <label for="surname"> Surname:</label>
+                <input type="text" class="form-input" name="surname">
+            </div>
+            
+            <div class="form-input">
+                <label for="location"> Location:</label>
+                <input type="text" class="form-input" name="location">
+            </div>
+
+            <div class="form-input">
+                <label for="compid"> Computer Asset Number:</label>
+                <input type="text" class="form-input" name="compid">
+            </div>
+
+            <br>
+
+            <hr class="solid">
+
+            <br>
+
+            <div class="textArea">
+                <label for="description">Issue Description:</label>
+                <textarea class="textArea" rows="25" name="description"></textarea>
+            </div>
+            <br>
+            <input type="submit"/>
+        </form>
+        </div>
+
+    </body>
+</html>

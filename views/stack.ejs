@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Fault Logger</title>
+        <link rel="stylesheet" href="/css/stack-style.css" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class= "sidenav">
+            <a href="/incident">New Incident</a>
+            <a href="/stack">View Stack</a>
+            <a href="/resolved">View Resolved</a>
+        </div>
+        
+        <div class = form>
+            <h1>View Stack</h1>
+            <div class="table-responsive-xl">
+                <table>
+                    <thead>
+                        <tr> <th>ID:</th> <th>First Name:</th> <th>Last Name:</th> <th>Location:</th> <th>Computer Asset No:</th>  <th>Description:</th> </tr>
+                    </thead>
+                    <tbody>
+                        <% for (i=0; i<tickets.length; i++) { %> <tr>
+                            <td>
+                                <%= tickets[i].incId %>
+                            </td> 
+                            <td>
+                                <%= tickets[i].firstName %>
+                            </td> 
+                            <td>
+                                 <%= tickets[i].lastName %> 
+                            </td>
+                            <td>
+                                <%= tickets[i].location %>
+                            </td> 
+                            <td>
+                                <%= tickets[i].compID %>
+                            </td> 
+                            <td>
+                                <%= tickets[i].description %>
+                            </td> 
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+
+        <button type="submit">Delete</button>
+     </div>
+
+ 
+        
+    </body>
+</html>
