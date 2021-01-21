@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Fault Logger</title>
@@ -8,6 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- Table onclick selection function -->
     </head>
     <body>
         <div class= "sidenav">
@@ -18,13 +20,16 @@
         
         <div class = form>
             <h1>View Stack</h1>
-            <div class="table-responsive-xl">
-                <table>
+            <form method="post" action="/filterName">
+                <label for="filter-stack">Search by name:</label>
+                <input type="text" name="firstName">
+                <button type="submit">Search</button>
+                <table id="stackTable">
                     <thead>
                         <tr> <th>ID:</th> <th>First Name:</th> <th>Last Name:</th> <th>Location:</th> <th>Computer Asset No:</th>  <th>Description:</th> </tr>
                     </thead>
                     <tbody>
-                        <% for (i=0; i<tickets.length; i++) { %> <tr>
+                        <% for (i=0; i<tickets.length; i++) { %> <tr class="clickable-row">
                             <td>
                                 <%= tickets[i].incId %>
                             </td> 
@@ -32,7 +37,7 @@
                                 <%= tickets[i].firstName %>
                             </td> 
                             <td>
-                                 <%= tickets[i].lastName %> 
+                                <%= tickets[i].lastName %> 
                             </td>
                             <td>
                                 <%= tickets[i].location %>
@@ -47,13 +52,8 @@
                         <% } %>
                     </tbody>
                 </table>
-            </div>
-            <br>
-
-        <button type="submit">Delete</button>
-     </div>
-
- 
-        
+                <br>
+                <button type="/deleteIncident">Delete</button>
+            </form>
     </body>
 </html>

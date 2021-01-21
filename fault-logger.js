@@ -30,7 +30,8 @@ app.get("/incident", routes.loadNewIncident);
 app.get("/stack", routes.listAllTickets);
 app.get("/resolved", routes.loadResolved);
 app.post("/submitTicket", routes.postNewIncident);
-app.post("/deleteTicket",routes.deleteIncident);
+app.post("/filterName",routes.pageListAllTickets);
+app.post("/deleteIncident", routes.deleteIncident);
 
 //Start the app
 app.listen(port, function(){
