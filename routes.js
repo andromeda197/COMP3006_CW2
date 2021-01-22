@@ -1,8 +1,7 @@
 let db = require("./db");
 let mongoose = require("mongoose");
 let Ticket = require("./ticket-schema").Ticket; 
-let ID = require("./id-generator");
-//let tableRow = require("./table.js")
+const { response } = require("express");
 
 async function listAllTickets(request, response){
     let tickets = await db.getTickets();
@@ -10,7 +9,7 @@ async function listAllTickets(request, response){
 }
 
 async function pageListAllTickets(request, response){
-    let tickets = await db.getTickets(request.body.firstName)
+    let tickets = await db.getTickets(request.body.incId)
     response.render("stack", {"tickets": tickets});
 }
 async function postNewIncident(request, response){
@@ -28,25 +27,20 @@ async function postNewIncident(request, response){
         if (err) console.log(err);
         //adds documents to the db and closes the connection.
         console.log("Data recieved");
+        //console.log(ObjectId.toString(" "));
     });
     response.redirect("stack")
 }
 
 async function deleteIncident(request, response){
-    item = request.body.firstName
+    let id = request.body.delete
+    Ticket.findByIdAndRemove(id).exec();
+    response.redirect("Stack");
 
-    Ticket.collection.insertOne(item, function(err){
-        //error handling...
-        if (err) console.log(err);
-        //adds documents to the db and closes the connection.
-        console.log("Data removed");
-    });
-    response.redirect("stack")
 }
 
 function loadNewIncident(request, response){
-    let id = ID.userIdGen();
-    response.render("incident", {id: id});
+    response.render("incident");
     
 }
 

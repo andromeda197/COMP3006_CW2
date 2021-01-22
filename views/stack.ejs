@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="/css/stack-style.css" />
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- Resizeable table -->
+        <script src="extensions/resizable/bootstrap-table-resizable.js"></script>
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
@@ -20,9 +22,9 @@
         
         <div class = form>
             <h1>View Stack</h1>
-            <form method="post" action="/filterName">
+            <form method="post" action="/filterTicket">
                 <label for="filter-stack">Search by name:</label>
-                <input type="text" name="firstName">
+                <input type="text" name="incId">
                 <button type="submit">Search</button>
                 <table id="stackTable">
                     <thead>
@@ -31,7 +33,7 @@
                     <tbody>
                         <% for (i=0; i<tickets.length; i++) { %> <tr class="clickable-row">
                             <td>
-                                <%= tickets[i].incId %>
+                                <%= tickets[i]._id.toString()%>
                             </td> 
                             <td>
                                 <%= tickets[i].firstName %>
@@ -53,7 +55,12 @@
                     </tbody>
                 </table>
                 <br>
-                <button type="/deleteIncident">Delete</button>
             </form>
+
+            <form method="post" action="/deleteIncident">
+                <input type="text" name="delete">
+                <button type="submit">Delete</button>
+            </form>
+            
     </body>
 </html>

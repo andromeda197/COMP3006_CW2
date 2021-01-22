@@ -1,10 +1,10 @@
 let models = require("./ticket-schema");
 
 //Uses the ticket schema to return a list of logged incidents.
-async function getTickets(firstName){
+async function getTickets(incId){
     let filter = { };
-    if(firstName){
-        filter.firstName = firstName;
+    if(incId){
+        filter.incId = incId;
     }
     return await models.Ticket.find(filter);
 }

@@ -21,16 +21,17 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "files")));
 
 //Enable processing of post forms
+mongoose.set("useFindAndModify", false);
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 //routes
 app.get("/incident", routes.loadNewIncident);
 app.get("/stack", routes.listAllTickets);
 app.get("/resolved", routes.loadResolved);
 app.post("/submitTicket", routes.postNewIncident);
-app.post("/filterName",routes.pageListAllTickets);
+app.post("/filterTicket",routes.pageListAllTickets);
 app.post("/deleteIncident", routes.deleteIncident);
 
 //Start the app
