@@ -1,0 +1,30 @@
+{
+  "name": "comp3006_cw2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fault-logger.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -ui tdd test/",
+    "start": "fault-logger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andromeda197/COMP3006_CW2.git"
+  },
+  "author": "\"Brandon White\",",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.10",
+    "socket.io": "^3.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/andromeda197/COMP3006/issues"
+  },
+  "homepage": "https://github.com/andromeda197/COMP3006/readme"
+}
