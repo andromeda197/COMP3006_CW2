@@ -1,1 +1,1 @@
-web.node.fault-logger.js
+web.nodemon.fault-logger.js
