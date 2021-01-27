@@ -4,6 +4,7 @@ let http = require("http");
 let path = require("path");
 let Io = require("socket.io");
 let routes = require("./routes");
+let port = process.env.PORT || 9000
 let bodyParser = require("body-parser");
 
 
@@ -50,5 +51,5 @@ io.on("connection", function(socket){
 
 //Start the app
 server.listen(9000, function(){
-    console.log("listening on 9000");
+    console.log("listening on " + port);
 });
