@@ -6,12 +6,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Socket.IO library -->
-        <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <!-- JS Socket.IO message script -->
-        <script src="/js/messages.js"></script>
     </head>
     <body>
         <div class= "sidenav">
@@ -21,7 +17,7 @@
         
         <div class= form>
             <form action="/submitTicket" method="post">
-            <h1>New Incident</h1>
+            <h1>Update Incident</h1>
 
             <div class="form-input">
                 <label for="fname">First Name:</label>
@@ -54,12 +50,9 @@
                 <textarea class="textArea" rows="25" name="description"></textarea>
             </div>
             <br>
-            <input type="submit"/>
-
-            <ul id="messages"></ul>
-
-            <script src="/js/validation.js"></script>
+            <button>Update</button>
         </form>
         </div>
+
     </body>
 </html>

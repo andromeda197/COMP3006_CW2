@@ -1,7 +1,6 @@
 let db = require("./db");
 let mongoose = require("mongoose");
 let Ticket = require("./ticket-schema").Ticket; 
-const { response } = require("express");
 
 async function listAllTickets(request, response){
     let tickets = await db.getTickets();
@@ -9,7 +8,8 @@ async function listAllTickets(request, response){
 }
 
 async function pageListAllTickets(request, response){
-    let tickets = await db.getTickets(request.body.incId)
+    let tickets = request.body.firstName;
+    tickets = await db.getTickets(tickets);
     response.render("stack", {"tickets": tickets});
 }
 async function postNewIncident(request, response){
@@ -39,18 +39,18 @@ async function deleteIncident(request, response){
 
 }
 
+function loadUpdateForm(request, response){
+    response.render("update");
+}
+
 function loadNewIncident(request, response){
     response.render("incident");
     
 }
 
-function loadResolved(request, response){
-    response.render("resolved");
-}
-
 module.exports.listAllTickets = listAllTickets;
 module.exports.loadNewIncident = loadNewIncident;
-module.exports.loadResolved = loadResolved;
 module.exports.postNewIncident = postNewIncident;
 module.exports.pageListAllTickets = pageListAllTickets;
 module.exports.deleteIncident = deleteIncident;
+module.exports.loadUpdateForm = loadUpdateForm;

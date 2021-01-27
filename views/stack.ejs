@@ -11,20 +11,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <!-- Table onclick selection function -->
     </head>
     <body>
         <div class= "sidenav">
             <a href="/incident">New Incident</a>
             <a href="/stack">View Stack</a>
-            <a href="/resolved">View Resolved</a>
         </div>
         
         <div class = form>
             <h1>View Stack</h1>
             <form method="post" action="/filterTicket">
                 <label for="filter-stack">Search by name:</label>
-                <input type="text" name="incId">
+                <input type="text" name="firstName">
                 <button type="submit">Search</button>
                 <table id="stackTable">
                     <thead>
@@ -33,7 +31,7 @@
                     <tbody>
                         <% for (i=0; i<tickets.length; i++) { %> <tr class="clickable-row">
                             <td>
-                                <%= tickets[i]._id.toString()%>
+                                <%= tickets[i]._id%>
                             </td> 
                             <td>
                                 <%= tickets[i].firstName %>
@@ -55,6 +53,8 @@
                     </tbody>
                 </table>
                 <br>
+                <!-- Table onclick selection function -->
+                <script src="/js/table.js"></script>
             </form>
 
             <form method="post" action="/deleteIncident">
