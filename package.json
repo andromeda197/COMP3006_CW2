@@ -2,7 +2,7 @@
   "name": "comp3006_cw2",
   "version": "1.0.0",
   "description": "",
-  "main": "fault-logger.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
